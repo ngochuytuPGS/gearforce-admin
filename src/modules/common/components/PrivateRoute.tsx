@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Redirect, Route, RouteProps } from 'react-router';
 import { ROUTES } from '../../../configs/routes';
 import { USER_COOKIE_KEY } from '../../../utils/constants';

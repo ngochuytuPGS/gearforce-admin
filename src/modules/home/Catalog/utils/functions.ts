@@ -1,5 +1,4 @@
 import { ICreateProductValidation } from '../../../../models/product';
-import { IUpdateUserValidation } from '../../../../models/user';
 import { priceRegex } from '../../../../utils';
 import { PRODUCT_SALE_PRICE_TYPE_DOLLAR_ID, PRODUCT_SALE_PRICE_TYPE_PERCENTAGE_ID } from './constants';
 
