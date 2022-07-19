@@ -1,0 +1,1 @@
+export const RESPONSE_STATUS_UNAUTHORIZED = 401;

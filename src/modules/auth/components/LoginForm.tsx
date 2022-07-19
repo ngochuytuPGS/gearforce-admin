@@ -21,6 +21,17 @@ const LoginForm = ({ onLogin, loading, loginErrorMessage }: Props) => {
     password: '',
   });
 
+  const onInputChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = e.target;
+      setFormValues({
+        ...formValues,
+        [name]: value,
+      });
+    },
+    [formValues],
+  );
+
   const onSubmit = useCallback(
     (e: React.FormEvent) => {
       e.preventDefault();
@@ -32,17 +43,6 @@ const LoginForm = ({ onLogin, loading, loginErrorMessage }: Props) => {
       }
     },
     [formValues, onLogin],
-  );
-
-  const onInputChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const { name, value } = e.target;
-      setFormValues({
-        ...formValues,
-        [name]: value,
-      });
-    },
-    [formValues],
   );
 
   return (
@@ -57,6 +57,7 @@ const LoginForm = ({ onLogin, loading, loginErrorMessage }: Props) => {
         )}
 
         <InputField
+          type="text"
           name="email"
           value={formValues.email}
           placeholder="Enter your email"
@@ -64,6 +65,7 @@ const LoginForm = ({ onLogin, loading, loginErrorMessage }: Props) => {
           errorMessage={validateLoginMessages.email}
         />
         <InputField
+          type="password"
           name="password"
           value={formValues.password}
           placeholder="Enter your password"

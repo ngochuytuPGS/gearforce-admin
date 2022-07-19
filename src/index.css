@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .input-primary {
+    @apply bg-color-input py-[6px] px-3 outline-none border rounded border-color-border transition-all hover:bg-color-secondary focus:border-color-purple !important;
+  }
+  .button-primary {
+    @apply bg-color-purple text-white rounded px-3 py-[6px] cursor-pointer transition-all hover:text-color-secondary !important;
+  }
+
+  .button-paging {
+    @apply bg-transparent text-white flex justify-center items-center border border-color-border outline-none w-[40px] h-[30px] -mr-[1px] cursor-pointer select-none transition-all hover:bg-color-purple !important;
+  }
+
+  .button-paging-active {
+    @apply bg-color-purple !important;
+  }
+
+  .shadow-primary {
+    box-shadow: 0 0 25px var(--tw-shadow-color);
+  }
+
+  .scrollbar-primary {
+    @apply overflow-auto scrollbar-thin scrollbar-track-color-main-scrollbar-track scrollbar-thumb-color-main-scrollbar-thumb !important;
+  }
+
+  .scrollbar-secondary {
+    @apply overflow-auto scrollbar-thin scrollbar-track-color-sidebar-scrollbar-track scrollbar-thumb-color-sidebar-scrollbar-thumb !important;
+  }
+}

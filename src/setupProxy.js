@@ -2,24 +2,27 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const router = {
-  // '/api': 'http://api.training.div3.pgtest.co/api/v1',
-  '/api': 'https://api.gearfocus.div4.pgtest.co/api',
+  '/apiExport': 'https://api.gearfocus.div4.pgtest.co/apiExport',
   '/apiAdmin': 'https://api.gearfocus.div4.pgtest.co/apiAdmin',
   '/apiVendor': 'https://api.gearfocus.div4.pgtest.co/apiVendor',
+  '/api': 'https://api.gearfocus.div4.pgtest.co/api',
 };
 
 module.exports = function (app) {
   app.use(
-    '/api',
+    ['/apiExport', '/apiAdmin', '/apiVendor', '/api'],
     createProxyMiddleware({
       target: 'https://api.gearfocus.div4.pgtest.co/api',
       changeOrigin: true,
-      secure: false,
+      secure: true,
       pathRewrite: {
+        '^/apiExport': '',
+        '^/apiVendor': '',
+        '^/apiAdmin': '',
         '^/api': '',
       },
       onProxyReq: function (proxyReq, req, res) {
-        proxyReq.removeHeader('Origin');
+        // proxyReq.removeHeader('Origin');
       },
       router,
       logLevel: 'debug',
